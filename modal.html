@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: orange;
+            text-align: center;
+        }
+        button {
+            all: unset;
+            background-color: tomato;
+            color: wheat;
+            padding: 5px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            position :relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .modal{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        .modal_layout {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #7f3d3d3d;
+        }
+
+        .modal_popup {   
+            box-shadow: 5px 5px 5px grey;
+            background-color: white;
+            padding: 30px 15px;
+            text-align: center;
+            position: relative;
+            width: 30%;
+            height: 15%;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>모달창 만들기 연습 </h1>
+    <button class="open_button">Click Me</button>
+    <div class="modal hidden">
+        <div class="modal_layout"></div>
+        <div class="modal_popup">
+            <p>안녕, 나는 모달창이야! 모달창을 여는데 성공했구나, 축하해!</p>
+            <button class = "close_button"> x </button>
+        </div>
+    </div>
+    <script>
+        const open_btn = document.querySelector(".open_button");
+        const modal = document.querySelector(".modal");
+        const modal_popup = document.querySelector(".modal_popup");
+        const close_btn = modal_popup.querySelector(".close_button");
+        const close_layout = document.querySelector(".modal_layout");
+        function openModal (){
+            modal.classList.remove("hidden"); // 두번째 클래스명은 . 안찍어도되나? 
+        }
+        function closeModal (){
+            modal.classList.add("hidden");
+        }
+        function closeModalLayout (){
+            modal.classList.add("hidden");
+        }
+        open_btn.addEventListener("click", openModal);
+        close_btn.addEventListener("click", closeModal);
+        close_layout.addEventListener("click", closeModalLayout);
+    </script>
+</body>
+</html>
